@@ -1,0 +1,35 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>All Posts - Virbuntu - All Things Linux</title>
+        <link>http://virbuntu.com/posts/</link>
+        <description>All Posts | Virbuntu - All Things Linux</description>
+        <generator>Hugo -- gohugo.io</generator><language>en-us</language><managingEditor>keanu@virbuntu.com (KeanuAaron)</managingEditor>
+            <webMaster>keanu@virbuntu.com (KeanuAaron)</webMaster><lastBuildDate>Wed, 17 Jun 2020 20:32:44 -0500</lastBuildDate><atom:link href="http://virbuntu.com/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>Automating Python Virtualenv With Bash</title>
+    <link>http://virbuntu.com/automating-python-virtualenv-with-bash/</link>
+    <pubDate>Wed, 17 Jun 2020 20:32:44 -0500</pubDate>
+    <author>Author</author>
+    <guid>http://virbuntu.com/automating-python-virtualenv-with-bash/</guid>
+    <description><![CDATA[I always forget how to use Python&rsquo;s virtual environment. It&rsquo;s simple. You&rsquo;d think I wouldn&rsquo;t forget but I do. I don&rsquo;t use it enough, and I should.
+What is Python Virtual Environment According to Real Python
+ At its core, the main purpose of Python virtual environments is to create an isolated environment for Python projects. This means that each project can have its own dependencies, regardless of what dependencies every other project has.]]></description>
+</item><item>
+    <title>Using Symbolic Links In Linux</title>
+    <link>http://virbuntu.com/using-symbolic-links-in-linux/</link>
+    <pubDate>Tue, 16 Jun 2020 20:12:51 -0500</pubDate>
+    <author>Author</author>
+    <guid>http://virbuntu.com/using-symbolic-links-in-linux/</guid>
+    <description><![CDATA[Using Symbolic Links In Linux Recently I learned about symbolic links and what they were. I had used them once time without really understanding what I was doing.
+Symbolic links are in a way like a road sign telling you what direction to go to. They point the computer towards the actual file so it knows where to get it from. Without a road sign you wouldn&rsquo;t know where to go and it&rsquo;s the same for a computer.]]></description>
+</item><item>
+    <title>Linux I/O Redirection Explained</title>
+    <link>http://virbuntu.com/linux-io-redirection-explained/</link>
+    <pubDate>Tue, 16 Jun 2020 20:09:14 -0500</pubDate>
+    <author>Author</author>
+    <guid>http://virbuntu.com/linux-io-redirection-explained/</guid>
+    <description><![CDATA[Linux I/O Redirection Explained By default when a command is executed, the result is shown on your monitor. This is known as the standard output, also known as STDOUT for short.
+When you input a command from a keyboard, the computer is taking input. This is known as STDIN, or standard input.
+Finally, when an error is thrown, it is known as, you guessed it. STDERR.
+ Each one of these are represented by a number the terminal can understand (though some numbers aren&rsquo;t entirely necessary).]]></description>
+</item></channel>
+</rss>

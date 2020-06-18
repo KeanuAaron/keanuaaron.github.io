@@ -1,0 +1,11 @@
+<urlset
+    xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+    xmlns:xhtml="http://www.w3.org/1999/xhtml"
+    ><url>
+            <loc>http://virbuntu.com/automating-python-virtualenv-with-bash/</loc><lastmod>2020-06-17T20:32:44-05:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://virbuntu.com/posts/</loc><lastmod>2020-06-17T20:32:44-05:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://virbuntu.com/</loc><lastmod>2020-06-17T20:32:44-05:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://virbuntu.com/using-symbolic-links-in-linux/</loc><lastmod>2020-06-16T20:12:51-05:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://virbuntu.com/linux-io-redirection-explained/</loc><lastmod>2020-06-16T20:09:14-05:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://virbuntu.com/categories/</loc><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>http://virbuntu.com/tags/</loc><changefreq>weekly</changefreq><priority>0.5</priority></url></urlset>

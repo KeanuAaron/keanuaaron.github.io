@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>Automating Python Virtualenv With Bash - Virbuntu - All Things Linux</title><meta name="Description" content="All things Linux"><meta property="og:title" content="Automating Python Virtualenv With Bash" />
+<meta property="og:description" content="I always forget how to use Python&rsquo;s virtual environment. It&rsquo;s simple. You&rsquo;d think I wouldn&rsquo;t forget but I do. I don&rsquo;t use it enough, and I should.
+What is Python Virtual Environment According to Real Python
+ At its core, the main purpose of Python virtual environments is to create an isolated environment for Python projects. This means that each project can have its own dependencies, regardless of what dependencies every other project has." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://virbuntu.com/automating-python-virtualenv-with-bash/" />
+<meta property="og:image" content="http://virbuntu.com/images/logo.png"/>
+<meta property="article:published_time" content="2020-06-17T20:32:44-05:00" />
+<meta property="article:modified_time" content="2020-06-17T20:32:44-05:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="http://virbuntu.com/images/logo.png"/>
+
+<meta name="twitter:title" content="Automating Python Virtualenv With Bash"/>
+<meta name="twitter:description" content="I always forget how to use Python&rsquo;s virtual environment. It&rsquo;s simple. You&rsquo;d think I wouldn&rsquo;t forget but I do. I don&rsquo;t use it enough, and I should.
+What is Python Virtual Environment According to Real Python
+ At its core, the main purpose of Python virtual environments is to create an isolated environment for Python projects. This means that each project can have its own dependencies, regardless of what dependencies every other project has."/>
+<meta name="application-name" content="Virbuntu">
+<meta name="apple-mobile-web-app-title" content="Virbuntu"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://virbuntu.com/automating-python-virtualenv-with-bash/" /><link rel="prev" href="http://virbuntu.com/using-symbolic-links-in-linux/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Automating Python Virtualenv With Bash",
+        "inLanguage": "en-us",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/virbuntu.com\/automating-python-virtualenv-with-bash\/"
+        },"genre": "posts","wordcount":  528 ,
+        "url": "http:\/\/virbuntu.com\/automating-python-virtualenv-with-bash\/","datePublished": "2020-06-17T20:32:44-05:00","dateModified": "2020-06-17T20:32:44-05:00","publisher": {
+            "@type": "Organization",
+            "name": "KeanuAaron"},"author": {
+                "@type": "Person",
+                "name": "KeanuAaron"
+            },"description": ""
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Virbuntu - All Things Linux"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/logo.png"
+        data-srcset="/images/logo.png, /images/logo.png 1.5x, /images/logo.png 2x"
+        data-sizes="auto"
+        alt="/images/logo.png"
+        title="/images/logo.png" />Virbuntu</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Virbuntu - All Things Linux"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/logo.png"
+        data-srcset="/images/logo.png, /images/logo.png 1.5x, /images/logo.png 2x"
+        data-sizes="auto"
+        alt="/images/logo.png"
+        title="/images/logo.png" />Virbuntu</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">Automating Python Virtualenv With Bash</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>KeanuAaron</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-06-17">2020-06-17</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;528 words&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;3 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#what-is-python-virtual-environment">What is Python Virtual Environment</a></li>
+    <li><a href="#how-to-make-a-python-virtual-environment">How to make a Python Virtual Environment</a></li>
+    <li><a href="#creating-the-bash-script">Creating the Bash Script</a></li>
+    <li><a href="#closing-thoughts">Closing Thoughts</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>I always forget how to use Python&rsquo;s virtual environment. It&rsquo;s simple. You&rsquo;d think I wouldn&rsquo;t forget but I do. I don&rsquo;t use it enough, and I should.</p>
+<h2 id="what-is-python-virtual-environment">What is Python Virtual Environment</h2>
+<p>According to <a href="" rel="">Real Python</a></p>
+<blockquote>
+<p>At its core, the main purpose of Python virtual environments is to create an isolated environment for Python projects.
+This means that each project can have its own dependencies, regardless of what dependencies every other project has.</p>
+</blockquote>
+<p>This is useful in one very important way. There are times when python packages can interfere with each other and they dependencies can get In the way of your script or program, causing all sorts of various bugs.</p>
+<hr>
+<h2 id="how-to-make-a-python-virtual-environment">How to make a Python Virtual Environment</h2>
+<p>Usually, this is how you create a virtual environment using python.</p>
+<p>Create Project Directory.<br>
+<code>$ mkdir Project</code></p>
+<p>Change into directory.<br>
+<code>$ cd Project</code></p>
+<p>Create the virtual environment.<br>
+<code>$ python3 -m venv venv</code></p>
+<p>Activate virtual environment.<br>
+<code>$ source venv/bin/activate</code></p>
+<p>This is pretty simple but I wanted to make it easier, quicker. I may have a bit of a tendency to be lazy at times.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://thumbs.gfycat.com/CoarseAgileEyelashpitviper-size_restricted.gif"
+        data-srcset="https://thumbs.gfycat.com/CoarseAgileEyelashpitviper-size_restricted.gif, https://thumbs.gfycat.com/CoarseAgileEyelashpitviper-size_restricted.gif 1.5x, https://thumbs.gfycat.com/CoarseAgileEyelashpitviper-size_restricted.gif 2x"
+        data-sizes="auto"
+        alt="https://thumbs.gfycat.com/CoarseAgileEyelashpitviper-size_restricted.gif"
+        title="Kevin Malone from the office saves time" /></p>
+<h2 id="creating-the-bash-script">Creating the Bash Script</h2>
+<p>For this script, I want to be able to call the command and enter the folder I want to make and put the python virtual environment folder in. So it&rsquo;ll need:</p>
+<ul>
+<li>To take an argument of folder path</li>
+<li>Check if folder exists</li>
+<li>if it doesn&rsquo;t create the folder, if does generate the virtual environment</li>
+<li>and finally, activate the virtual environment</li>
+</ul>
+<p>Let&rsquo;s create the bash script and call it <em>createVenv.sh</em></p>
+<p><em>createVenv.sh</em></p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#!/bin/bash
+</span><span class="cp"></span><span class="nv">YELLOW</span><span class="o">=</span><span class="s1">&#39;\033[1;33m&#39;</span>
+<span class="nv">RED</span><span class="o">=</span><span class="s1">&#39;\033[0;31m&#39;</span>
+<span class="nv">GREEN</span><span class="o">=</span><span class="s1">&#39;\033[0;32m&#39;</span>
+<span class="nv">CYAN</span><span class="o">=</span><span class="s1">&#39;\033[0.36m&#39;</span>
+
+<span class="c1"># Check if argument is used</span>
+<span class="k">if</span> <span class="o">[</span> <span class="nv">$#</span> -ge <span class="m">1</span> <span class="o">]</span>
+<span class="k">then</span>
+  <span class="c1"># if directory doesn&#39;t exist</span>
+  <span class="c1"># make directory</span>
+  <span class="k">if</span> <span class="o">[</span> ! -d <span class="nv">$1</span> <span class="o">]</span>
+  <span class="k">then</span>
+    <span class="nb">printf</span> <span class="s2">&#34;</span><span class="si">${</span><span class="nv">YELLOW</span><span class="si">}</span><span class="s2">[-]</span><span class="si">${</span><span class="nv">YELLOW</span><span class="si">}</span><span class="s2"> </span><span class="si">${</span><span class="nv">CYAN</span><span class="si">}</span><span class="s2">Creating directory for </span><span class="nv">$1</span><span class="si">${</span><span class="nv">CYAN</span><span class="si">}</span><span class="s2">\n&#34;</span>
+    mkdir <span class="nv">$1</span>
+  <span class="k">fi</span>
+
+  <span class="c1"># create &amp; activate virtual environment</span>
+  <span class="nb">printf</span> <span class="s2">&#34;</span><span class="si">${</span><span class="nv">YELLOW</span><span class="si">}</span><span class="s2">[-]</span><span class="si">${</span><span class="nv">YELLOW</span><span class="si">}</span><span class="s2"> </span><span class="si">${</span><span class="nv">CYAN</span><span class="si">}</span><span class="s2">Building virtual environment</span><span class="si">${</span><span class="nv">CYAN</span><span class="si">}</span><span class="s2">\n&#34;</span>
+
+  /usr/bin/python3 -m venv <span class="nv">$1</span>/venv
+  <span class="nb">printf</span> <span class="s2">&#34;</span><span class="si">${</span><span class="nv">GREEN</span><span class="si">}</span><span class="s2">[+] Successfully created virtual environment</span><span class="si">${</span><span class="nv">GREEN</span><span class="si">}</span><span class="s2">\n&#34;</span>
+  <span class="nb">source</span> <span class="nv">$1</span>/venv/bin/activate
+
+<span class="k">else</span>
+  <span class="nb">printf</span> <span class="s2">&#34;</span><span class="si">${</span><span class="nv">RED</span><span class="si">}</span><span class="s2">[!] Usage: createVenv.sh [ folder ] to create virtual environment</span><span class="si">${</span><span class="nv">RED</span><span class="si">}</span><span class="s2">\n&#34;</span>
+	
+  <span class="nb">printf</span> <span class="s2">&#34;</span><span class="si">${</span><span class="nv">YELLOW</span><span class="si">}</span><span class="s2">[-] Usage: source createVenv.sh [ folder ] to create &amp; use virtual environment</span><span class="si">${</span><span class="nv">YELLOW</span><span class="si">}</span><span class="s2">\n&#34;</span>
+<span class="k">fi</span>
+</code></pre></div><p>Next, before we can run it, we first need to make it executable<br>
+<code>$ sudo chmod +x createVenv.sh</code></p>
+<p>And finally, create a symbolic link so we can run it like a normal bash command.<br>
+<code>$ ln -s createVenv.sh /usr/local/bin/createVenv</code></p>
+<blockquote>
+<p>If you aren&rsquo;t sure how to handle symbolic links properly, I wrote a quick article <a href="http://virbuntu.com/using-symbolic-links-in-linux/" target="_blank" rel="noopener noreffer">here</a>.</p>
+</blockquote>
+<hr>
+<p>You can run this command two different ways.</p>
+<ol>
+<li><code>$ createVenv /path/to/Project</code> : running the command this way will create the directory if needed and create the virtual environment.</li>
+<li><code>$ source createVenv /path/to/Project</code> : everything that the top does AND it activates the virtual environment so you can get started right away.</li>
+</ol>
+<blockquote>
+<p><!-- raw HTML omitted --><strong>WARNING</strong>: It is important you don&rsquo;t end the path to project with the closing <code>/</code>. This will confuse your activation and make a path like this <code>//</code>.<!-- raw HTML omitted --></p>
+</blockquote>
+<h2 id="closing-thoughts">Closing Thoughts</h2>
+<p>Hopefully, this is as useful to you as it is for me. I thought it would be fun to start tinkering with bash scripting and I figured this would be my first shot at it. Keep looking out for more notes that could be useful. Thanks for reading.</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2020-06-17</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="http://virbuntu.com/automating-python-virtualenv-with-bash/" data-title="Automating Python Virtualenv With Bash"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="http://virbuntu.com/automating-python-virtualenv-with-bash/"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="Share on WhatsApp" data-sharer="whatsapp" data-url="http://virbuntu.com/automating-python-virtualenv-with-bash/" data-title="Automating Python Virtualenv With Bash" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href="javascript:void(0);" title="Share on Reddit" data-sharer="reddit" data-url="http://virbuntu.com/automating-python-virtualenv-with-bash/"><i class="fab fa-reddit fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/using-symbolic-links-in-linux/" class="prev" rel="prev" title="Using Symbolic Links In Linux"><i class="fas fa-angle-left fa-fw"></i>Using Symbolic Links In Linux</a></div>
+</div>
+<div id="comments"></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.72.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2020</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">KeanuAaron</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":10},"comment":{}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>
