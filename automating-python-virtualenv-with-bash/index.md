@@ -6,7 +6,7 @@ I always forget how to use Python's virtual environment. It's simple. You'd thin
 
 ## What is Python Virtual Environment
 
-According to [Real Python]()
+According to [Real Python](https://realpython.com/python-virtual-environments-a-primer/)
 > At its core, the main purpose of Python virtual environments is to create an isolated environment for Python projects.
 > This means that each project can have its own dependencies, regardless of what dependencies every other project has.  
 
